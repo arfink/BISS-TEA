@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" href="images/bissTea.ico" />
+		<meta charset="utf-8">
+		<title>BISS-Tea</title>
+		
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link href="styles/stylesheet.css" rel="stylesheet">
+		
+	</head>
+	
+	<body>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/javascript.js"></script>
+	</body>
+</html>
