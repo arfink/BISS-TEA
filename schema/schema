@@ -1,7 +1,7 @@
 Database Schema
 
 Table: Users
-  - handle
+  - User handle
   - email
   - password hash
   - date_created
@@ -9,6 +9,7 @@ Table: Users
   - deleted
 
 Table: Orders
+  - User handle
   - Order Description
   - Account / Brand
   - Price
