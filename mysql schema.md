@@ -4,6 +4,9 @@ Table: Users
   - handle
   - email
   - password hash
+  - date_created
+  - date_modified
+  - deleted
 
 Table: Orders
   - Order Description
@@ -13,3 +16,6 @@ Table: Orders
   - Location of Installation (Route # or Location Name)
   - Sign shop responsible for making sign
   - Name of salesman who ordered sign
+  - date_created
+  - date_modified
+  - deleted
