@@ -1,4 +1,5 @@
 <?php
+require "php/actions/mysql_functions.php";
 
 //make sure the url entered is valid
 function validate_url($url_html, $url_php)
