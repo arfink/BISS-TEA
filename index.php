@@ -1,14 +1,6 @@
 <?php
+//place for all custom mysql helper functions
 require "php/actions/mysql_functions.php";
-
-//get connection
-//$mysqli = connect_to_mysql();
-
-//perform query
-
-//if select statement create results object
-//$res = $mysqli->query("SELECT id FROM test ORDER BY id ASC");
-
 
 //don't use the html template when going to login page, use other html page
 function serve_login_page()
@@ -91,26 +83,6 @@ function parse($url)
 
 //check if user is logged in, if not return to the login screen and exit
 
-
-
-
-
 parse($_SERVER["REQUEST_URI"]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
