@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="full-height">
 	<head>
 		<link rel="shortcut icon" href="images/bissTea.ico" />
 		<meta charset="utf-8">
@@ -7,9 +7,10 @@
 
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="styles/stylesheet.css">
+		<link rel="stylesheet" href="styles/main.css">
 	</head>
 
-	<body>
+	<body class="full-height">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -23,16 +24,20 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">.htm
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="/home">Home</a></li>
 						<li><a href="/account">Account</a></li>
-						<li><a href="/account">Admin</a></li>
+						<li><a href="/privileged_access">Admin</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
 		</nav>
 
+		<div class="body-div container body-height">
 
-		==body==
+			==body==
+
+		</div>
+
 
 
 	</body>

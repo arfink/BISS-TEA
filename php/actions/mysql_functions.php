@@ -6,26 +6,19 @@ function connect_to_mysql()
 	$username = "php";
 	$password = "password";
 
+	$database = "biss";
+
 	// Create connection
-	$conn = new mysqli($servername, $username, $password);
+	$conn = new mysqli($servername, $username, $password, $database);
 
 	// Check connection
 	if ($conn->connect_error) {
 		//die("Connection failed: " . $conn->connect_error);
-		echo "Failed!";
 		return FALSE;
 	} 
 
-	echo "Connected successfully";
+	echo "connected successfully";
 	return $conn;
 }
-
-
-
-
-
-
-
-
 
 ?>
