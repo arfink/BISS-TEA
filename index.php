@@ -97,29 +97,4 @@ else
 	serve_login_page();
 
 
-<<<<<<< Updated upstream
-
-
-
-
-parse($_SERVER["REQUEST_URI"]);
-=======
->>>>>>> Stashed changes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
