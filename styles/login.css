@@ -40,7 +40,10 @@ body {
 }
 
 .form-signin input[type="password"] {
-	margin-bottom: 10px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
+}
+
+.last-field {
+	margin-bottom: 10px
 }

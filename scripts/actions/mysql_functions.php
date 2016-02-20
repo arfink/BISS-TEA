@@ -5,6 +5,7 @@ function connect_to_mysql()
 	$servername = "localhost";
 	$username = "php";
 	$password = "password";
+
 	$database = "biss";
 
 	// Create connection
@@ -19,6 +20,5 @@ function connect_to_mysql()
 	echo "connected successfully";
 	return $conn;
 }
-
 
 ?>

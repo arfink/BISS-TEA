@@ -1,13 +1,7 @@
 <?php
 
-//get connection
-//$mysqli = connect_to_mysql();
-
-//perform query
-
-//if select statement create results object
-//$res = $mysqli->query("SELECT id FROM test ORDER BY id ASC");
-
+//place for all custom mysql helper functions
+require "scripts/actions/mysql_functions.php";
 
 //don't use the html template when going to login page, use other html page
 function serve_login_page()
@@ -43,7 +37,7 @@ function parse($url)
 	
 	//define paths
 	$url_html = "templates".$url_array[0].".html";
-	$url_php = "php/pages".$url_array[0].".php";
+	$url_php = "scripts/pages".$url_array[0].".php";
 
 	if ($url_array[0] == "/login")
 	{
@@ -61,7 +55,7 @@ function parse($url)
 	if (!validate_url($url_html, $url_php))
 	{
 		$url_html = "templates/home.html";
-		$url_php = "php/pages/home.php";
+		$url_php = "scripts/pages/home.php";
 	}
 
 	//load generic template file
@@ -87,14 +81,30 @@ function parse($url)
 	echo $html;
 }
 
+//start them engins!
+//
+//this guy stores everything about the particular instance which is running
+//this is what is used to see if a user is logged in, etc...
+session_start();
+
+
+$_SESSION["logged_in"] = true;
 
 //check if user is logged in, if not return to the login screen and exit
+if ($_SESSION["logged_in"] == true)
+	parse($_SERVER["REQUEST_URI"]);
+else
+	serve_login_page();
 
+
+<<<<<<< Updated upstream
 
 
 
 
 parse($_SERVER["REQUEST_URI"]);
+=======
+>>>>>>> Stashed changes
 
 
 
