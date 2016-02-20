@@ -96,17 +96,4 @@ if ($_SESSION["logged_in"] == true)
 else
 	serve_login_page();
 
-
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-
-
-
-
->>>>>>> jared
-parse($_SERVER["REQUEST_URI"]);
-=======
->>>>>>> Stashed changes
-
 ?>
