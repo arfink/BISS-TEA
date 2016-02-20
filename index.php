@@ -87,13 +87,15 @@ function parse($url)
 //this is what is used to see if a user is logged in, etc...
 session_start();
 
-
-$_SESSION["logged_in"] = true;
-
 //check if user is logged in, if not return to the login screen and exit
 if ($_SESSION["logged_in"] == true)
+{
+	echo "logged in!";
 	parse($_SERVER["REQUEST_URI"]);
+}
 else
+{
 	serve_login_page();
+}
 
 ?>
