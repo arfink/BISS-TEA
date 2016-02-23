@@ -24,7 +24,7 @@ class session_functions {
 		//connect to db
 		$conn = connect_to_mysql();
 
-		$sql = "select * from users where user_email = ".$email.";";
+		$sql = "select * from users where user_email = '".$email."';";
 
 		// find user record via email
 		$result = $conn -> query($sql);
@@ -34,15 +34,13 @@ class session_functions {
 			return false;
 
 
-
-
 		// get the first row
-		$row = mysqli_fetch_array($results);	
+		$row = mysqli_fetch_array($result);	
 
 		// **WARNING DO NOT USE IN PRODUCTION**
 		// temporary login using plaintext password stored in "password_hash"
 
-		$db_passplain = $row["password_hash"]
+		$db_passplain = $row["password_hash"];
 
 		if (strcmp ($db_passplain, $password) == 0)
 			return true;
