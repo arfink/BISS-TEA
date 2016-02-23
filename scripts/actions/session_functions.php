@@ -24,10 +24,10 @@ class session_functions {
 		//connect to db
 		$conn = connect_to_mysql();
 
-		$sql = "select * from users where email = ".$email;
+		$sql = "select * from users where user_email = ".$email.";";
 
 		// find user record via email
-		$result = $conn -> $query($sql);
+		$result = $conn -> query($sql);
 
 		// make sure we got a record back
 		if ($result->num_rows != 1)
@@ -39,15 +39,26 @@ class session_functions {
 		// get the first row
 		$row = mysqli_fetch_array($results);	
 
-		// get the password hash
-		$db_passhash = $row["pass_hash"]
+		// **WARNING DO NOT USE IN PRODUCTION**
+		// temporary login using plaintext password stored in "password_hash"
 
+		$db_passplain = $row["password_hash"]
 
-		//compare password hash
-		if (password_verify($password, $db_passhash))
+		if (strcmp ($db_passplain, $password) == 0)
 			return true;
 		else
 			return false;
+		
+
+		// get the password hash
+		//$db_passhash = $row["password_hash"]
+
+
+		//compare password hash
+		//if (password_verify($password, $db_passhash))
+		//	return true;
+		//else
+		//	return false;
 	}
 
 	function signup()

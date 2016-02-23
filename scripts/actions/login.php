@@ -6,7 +6,7 @@ session_start();
 
 $session = new session_functions;
 
-if ($session->login_verify())
+if ($session->login_verify($_POST['email_name'],$_POST['password_name']))
 {
 	$_SESSION["logged_in"] = true;
 	$_SESSION["user_name"] = $_POST['user'];
