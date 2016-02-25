@@ -35,6 +35,19 @@ function validate_url($url_html, $url_php)
 	return TRUE;
 }
 
+// this function grabbs the session variables "growl_type" and "growl_message"
+// and creates a notification for the user based on that.
+//
+// growl_type can be any of the following:
+//
+//     "error"
+//     "warning"
+//     "notice"
+//
+// growl message can be any string.
+//
+// so, just set those variables when something happens in a php file and you
+// want to tell the user, it's that simple!
 function get_growl()
 {
 	if (isset($_SESSION["growl_type"]) && $_SESSION["growl_type"] !== "none")
