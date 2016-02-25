@@ -8,6 +8,9 @@ function serve_login_page()
 {
 	$html = file_get_contents("templates/login.html");
 
+	$growl = get_growl();
+	$html = str_replace("==growl==", $growl, $html);	
+
 	echo $html;
 }
 
@@ -15,6 +18,9 @@ function serve_login_page()
 function serve_signup_page()
 {
 	$html = file_get_contents("templates/signup.html");
+
+	$growl = get_growl();
+	$html = str_replace("==growl==", $growl, $html);	
 
 	echo $html;
 }
@@ -28,6 +34,27 @@ function validate_url($url_html, $url_php)
 
 	return TRUE;
 }
+
+function get_growl()
+{
+	if (isset($_SESSION["growl_type"]) && $_SESSION["growl_type"] !== "none")
+	{
+		$growl_type = $_SESSION["growl_type"];
+		$growl_message = $_SESSION["growl_message"];
+		$growl = "$.growl.".$growl_type."({ message: '".$growl_message."' });";
+	}
+	else
+	{
+		$growl = "";
+	}
+
+	//clear out session variables for next use!
+	$_SESSION["growl_type"] = "none";
+	$_SESSION["growl_message"] = "";
+
+	return $growl;
+}
+
 
 //parse url and serve up appropriate files
 function parse($url)
@@ -82,6 +109,9 @@ function parse($url)
 
 	//push body content into $html
 	$html = str_replace("==body==", $body, $html);	
+
+	$growl = get_growl();
+	$html = str_replace("==growl==", $growl, $html);	
 
 	//echo out resulting webpage
 	echo $html;

@@ -10,7 +10,16 @@ if ($session->login_verify($_POST['email_name'],$_POST['password_name']))
 {
 	$_SESSION["logged_in"] = true;
 	$_SESSION["user_name"] = $_POST['user'];
+
+	$_SESSION["growl_type"] = "notice";
+	$_SESSION["growl_message"] = "Successfully logged in!";
 }
+else
+{
+	$_SESSION["growl_type"] = "error";
+	$_SESSION["growl_message"] = "incorrect username or password";
+}
+
 
 header('Location: /index.php');
 

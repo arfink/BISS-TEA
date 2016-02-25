@@ -6,6 +6,7 @@
 		<title>BISS-TEA</title>
 
 		<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/growl.css">
 		<link rel="stylesheet" href="/styles/stylesheet.css">
 		<link rel="stylesheet" href="/styles/main.css">
 	</head>
@@ -42,6 +43,7 @@
 
 	<script type="text/javascript" src="/assets/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/growl.js"></script>
 
 	<script type="text/javascript">
 		$("#logout").click(function() {
@@ -49,6 +51,10 @@
 		});
 	</script>
 
+	<script type="text/javascript">
+		//growl message
+		==growl==
+	</script>
 
 
 </html>
