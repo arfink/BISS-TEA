@@ -27,7 +27,7 @@
 						<li class="active"><a href="/home">Home</a></li>
 						<li><a href="/account">Account</a></li>
 						<li><a href="/privileged_access">Admin</a></li>
-						<li><a href="/scripts/actions/session_functions.php">Logout</a></li>
+						<li><a id="logout" href="#">Logout</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -35,20 +35,20 @@
 
 		<div class="body-div container body-height">
 
-
-			<form action="/scripts/actions/logout.php" method="get">
-				<input type="submit">
-			</form>
-
-
 			==body==
 
 		</div>
-
-
-
 	</body>
 
 	<script type="text/javascript" src="/assets/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$("#logout").click(function() {
+			window.location="/scripts/actions/logout.php";
+		});
+	</script>
+
+
+
 </html>
