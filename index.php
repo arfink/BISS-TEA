@@ -51,6 +51,12 @@ function parse($url)
 		return;
 	}
 
+	if ($_SESSION["logged_in"] !== true)
+	{
+		serve_login_page();
+		return;
+	}
+
 	//validate url
 	if (!validate_url($url_html, $url_php))
 	{
@@ -88,14 +94,6 @@ function parse($url)
 session_start();
 
 //check if user is logged in, if not return to the login screen and exit
-if ($_SESSION["logged_in"] == true)
-{
-	echo "logged in!";
-	parse($_SERVER["REQUEST_URI"]);
-}
-else
-{
-	serve_login_page();
-}
+parse($_SERVER["REQUEST_URI"]);
 
 ?>
