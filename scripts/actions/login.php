@@ -6,10 +6,10 @@ session_start();
 
 $session = new session_functions;
 
-if ($session->login_verify($_POST['email_name'],$_POST['password_name']))
+if ($session->login_verify($_POST['email_name'], $_POST['password_name']))
 {
 	$_SESSION["logged_in"] = true;
-	$_SESSION["user_name"] = $_POST['user'];
+	$_SESSION["email"] = $_POST['email_name'];
 
 	$_SESSION["growl_type"] = "notice";
 	$_SESSION["growl_message"] = "Successfully logged in!";

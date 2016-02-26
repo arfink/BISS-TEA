@@ -17,7 +17,6 @@ function connect_to_mysql()
 		return FALSE;
 	} 
 
-	echo "connected successfully";
 	return $conn;
 }
 

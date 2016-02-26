@@ -17,7 +17,6 @@ class session_functions {
 
 	}
 
-
 	// verifys a user's credentials
 	function login_verify($email, $password)
 	{
@@ -30,33 +29,21 @@ class session_functions {
 		$result = $conn -> query($sql);
 
 		// make sure we got a record back
-		if ($result->num_rows != 1)
+		if ($result->num_rows !== 1)
 			return false;
-
 
 		// get the first row
 		$row = mysqli_fetch_array($result);	
 
-		// **WARNING DO NOT USE IN PRODUCTION**
-		// temporary login using plaintext password stored in "password_hash"
-
-		$db_passplain = $row["password_hash"];
-
-		if (strcmp ($db_passplain, $password) == 0)
-			return true;
-		else
-			return false;
-		
-
 		// get the password hash
-		//$db_passhash = $row["password_hash"]
+		$db_passhash = $row["password_hash"];
 
 
 		//compare password hash
-		//if (password_verify($password, $db_passhash))
-		//	return true;
-		//else
-		//	return false;
+		if (password_verify($password, $db_passhash))
+			return true;
+		else
+			return false;
 	}
 
 	function signup()
