@@ -70,8 +70,10 @@ class session_functions {
 			$_SESSION["username"] = $row["username"];
 			return true;
 		}
-		else
+		else {
+			$_SESSION["logged_in"] = false;
 			return false;
+		}
 	}
 
 	function signup()
