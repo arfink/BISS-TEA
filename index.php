@@ -76,6 +76,7 @@ function parse($url)
 	$url_array = explode(".", $url);
 	
 	//define paths
+	$url_name = substr($url_array[0], 1);
 	$url_html = "templates".$url_array[0].".html";
 	$url_php = "scripts/pages".$url_array[0].".php";
 
@@ -100,6 +101,7 @@ function parse($url)
 	//validate url
 	if (!validate_url($url_html, $url_php))
 	{
+		$url_name = "home";
 		$url_html = "templates/home.html";
 		$url_php = "scripts/pages/home.php";
 	}
@@ -116,9 +118,12 @@ function parse($url)
 	file_exists($url_php);	
 	include $url_php;
 
-
 	//check permission variable against user account.
 	//If permission variable not set, die loudly
+
+
+	$html = str_replace("==active==", $url_name, $html);	
+
 
 	//push body content into $html
 	$html = str_replace("==body==", $body, $html);	

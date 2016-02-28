@@ -25,11 +25,16 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">.htm
-						<li class="active"><a href="/home">Home</a></li>
-						<li><a href="/account">Account</a></li>
-						<li><a href="/privileged_access">Admin</a></li>
-						<li><a id="logout" href="#">Logout</a></li>
+						<!--<li class="active"><a href="/home">Home</a></li>-->
+						<li id="home_link"><a href="/home">Home</a></li>
+						<li id="account_link"><a href="/account">Account</a></li>
+						<li id="privileged_access_link"><a href="/privileged_access">Admin</a></li>
 					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li id="logout_link"><a id="logout" href="#">Logout</a></li>
+					</ul>
+
 				</div><!--/.nav-collapse -->
 			</div>
 		</nav>
@@ -52,8 +57,15 @@
 	</script>
 
 	<script type="text/javascript">
-		//growl message
-		==growl==
+		$().ready(function() {
+
+			//growl message
+			==growl==
+
+			//set which page we are on
+			$("#==active==_link").addClass("active");
+		});
+
 	</script>
 
 
