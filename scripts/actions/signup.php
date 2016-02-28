@@ -7,6 +7,7 @@ session_start();
 $email           = $_POST["email"];
 $password        = $_POST["password"];
 $password_verify = $_POST["password_verify"];
+$username		 = $_POST["username"];
 
 
 // verify password
@@ -46,7 +47,7 @@ $date = date('Y-m-d');
 $sql = "INSERT INTO users
 	(username, user_email, password_hash, date_created, date_modified, deleted)
 	VALUES
-	('".$email."', '".$email."', '".$hash."', '".$date."', '".$date."', 0);";
+	('".$username."', '".$email."', '".$hash."', '".$date."', '".$date."', 0);";
 $result = $conn -> query($sql);
 
 
