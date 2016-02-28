@@ -12,7 +12,7 @@ class session_functions {
 
 
 	// checks a user's permission level
-	function is_admin()
+	function is_admin($username)
 	{
 
 	}
