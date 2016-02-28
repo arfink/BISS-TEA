@@ -12,8 +12,32 @@ class session_functions {
 
 
 	// checks a user's permission level
-	function is_admin($username)
+	function is_admin()
 	{
+		//connect
+		$conn = connect_to_mysql();
+
+		//we want to select by user id using $session["user_id"]
+		$sql = "select * from users where id = ".$_SESSION["user_id"].";";
+
+		//find record by user id number
+		$result = $conn -> query($sql);
+
+		//make sure we get a record back
+		if ($result->num_rows !== 1)
+			return false;
+
+		//get the row data
+		$row = mysqli_fetch_array($result);
+
+		// get the user's permissions level. value 1 is admin
+		$user_level = $row["perm_level"];
+
+		if ($user_level == 1) {
+			return true;
+		}
+		else 
+			return false;
 
 	}
 
@@ -39,9 +63,13 @@ class session_functions {
 		$db_passhash = $row["password_hash"];
 
 
-		//compare password hash
-		if (password_verify($password, $db_passhash))
+		//compare password hash, if true, set session vars
+		if (password_verify($password, $db_passhash)) {
+			$_SESSION["logged_in"] = true;
+			$_SESSION["user_id"] = $row["id"];
+			$_SESSION["username"] = $row["username"];
 			return true;
+		}
 		else
 			return false;
 	}

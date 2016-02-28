@@ -5,8 +5,8 @@ session_start();
 
 $session = new session_functions;
 
-header('Location: /index.php');
-
 $session->logout();
+
+header('Location: /login');
 
 ?>
