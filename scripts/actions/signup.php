@@ -50,9 +50,22 @@ $sql = "INSERT INTO users
 	('".$username."', '".$email."', '".$hash."', '".$date."', '".$date."', 0);";
 $result = $conn -> query($sql);
 
+// get the user id
+$sql = "SELECT id FROM users where user_email = '".$email."';";
+$result = $conn -> query($sql);
+
+if ($result->num_rows !== 1)
+{
+	$_SESSION["growl_type"] = "error";
+	$_SESSION["growl_message"] = "Something bad happened...!";
+	return;
+}
+
+$row = mysqli_fetch_array($result);
 
 $_SESSION["logged_in"] = true;
 $_SESSION["email"] = $email;
+$_SESSION["id"] = $row["id"];
 
 $_SESSION["growl_type"] = "notice";
 $_SESSION["growl_message"] = "Account successfully created!";
