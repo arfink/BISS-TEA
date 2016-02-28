@@ -1,5 +1,5 @@
 <?php
-require "mysql_functions.php";
+require_once "mysql_functions.php";
 
 class session_functions {
 
