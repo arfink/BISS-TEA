@@ -65,7 +65,7 @@ $row = mysqli_fetch_array($result);
 
 $_SESSION["logged_in"] = true;
 $_SESSION["email"] = $email;
-$_SESSION["id"] = $row["id"];
+$_SESSION["user_id"] = $row["id"];
 
 $_SESSION["growl_type"] = "notice";
 $_SESSION["growl_message"] = "Account successfully created!";
