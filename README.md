@@ -1,4 +1,6 @@
-# BISS-TEA
+# BISS-TEA ![BISS-TEA](https://github.com/arfink/BISS-TEA/blob/master/images/biss-tea.png)
+
+
 Beverage Industry Sign Shop - Tracking Expense Accounts
 
 A web service for tracking and reporting sign-making and POS expenses for beverage industry print shops.
