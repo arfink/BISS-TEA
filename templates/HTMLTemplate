@@ -11,6 +11,10 @@
 		<link rel="stylesheet" href="/styles/main.css">
 	</head>
 
+	<script type="text/javascript" src="/assets/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/growl.js"></script>
+
 	<body class="full-height">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
@@ -45,10 +49,6 @@
 
 		</div>
 	</body>
-
-	<script type="text/javascript" src="/assets/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/assets/growl.js"></script>
 
 	<script type="text/javascript">
 		$("#logout").click(function() {

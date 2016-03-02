@@ -3,6 +3,12 @@
 //place for all custom mysql helper functions
 require "scripts/actions/mysql_functions.php";
 
+//start them engins!
+//
+//this guy stores everything about the particular instance which is running
+//this is what is used to see if a user is logged in, etc...
+session_start();
+
 //don't use the html template when going to login page, use other html page
 function serve_login_page()
 {
@@ -54,6 +60,10 @@ function get_growl()
 	{
 		$growl_type = $_SESSION["growl_type"];
 		$growl_message = $_SESSION["growl_message"];
+
+
+		echo("here!");
+
 		$growl = "$.growl.".$growl_type."({ message: '".$growl_message."' });";
 	}
 	else
@@ -112,6 +122,8 @@ function parse($url)
 	//load body file
 	$body = file_get_contents($url_html);
 
+	$has_permission = true;
+
 	//clear out permission variable
 
 	//execute page specific php, if it exists
@@ -120,10 +132,12 @@ function parse($url)
 
 	//check permission variable against user account.
 	//If permission variable not set, die loudly
-
+	if (!$has_permission)
+	{
+		return;
+	}
 
 	$html = str_replace("==active==", $url_name, $html);	
-
 
 	//push body content into $html
 	$html = str_replace("==body==", $body, $html);	
@@ -135,13 +149,8 @@ function parse($url)
 	echo $html;
 }
 
-//start them engins!
-//
-//this guy stores everything about the particular instance which is running
-//this is what is used to see if a user is logged in, etc...
-session_start();
-
 //check if user is logged in, if not return to the login screen and exit
 parse($_SERVER["REQUEST_URI"]);
+
 
 ?>
